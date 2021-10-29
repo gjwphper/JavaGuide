@@ -277,7 +277,7 @@ Dubbo 是一款国产的 RPC 框架，由阿里开源。相关阅读：
 
 1. **RabbitMQ** : [RabbitMQ 入门](docs/system-design/distributed-system/message-queue/RabbitMQ入门看这一篇就够了.md)
 2. **RocketMQ** : [RocketMQ 入门](docs/system-design/distributed-system/message-queue/RocketMQ.md)、[RocketMQ 的几个简单问题与答案](docs/system-design/distributed-system/message-queue/RocketMQ-Questions.md)
-3. **Kafka** ：[Kafka 常见问题总结](docs/system-design/distributed-system/message-queue/Kafka常见面试题总结.md)
+3. **Kafka** ：[Kafka 常见问题总结](docs/system-design/distributed-system/message-queue/Kafka-all.md)
 
 #### 读写分离&分库分表
 
