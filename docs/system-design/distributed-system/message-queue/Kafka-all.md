@@ -58,7 +58,9 @@ Kafka 主要有两大应用场景：
 
 **Kafka 采用的就是发布 - 订阅模型。** 
 
+<font color="red">
 > **RocketMQ 的消息模型和 Kafka 基本是完全一样的。唯一的区别是 Kafka 中没有队列这个概念，与之对应的是 Partition（分区）。**
+</font>
 
 ### 什么是Producer、Consumer、Broker、Topic、Partition？
 
