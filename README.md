@@ -289,7 +289,7 @@ Dubbo 是一款国产的 RPC 框架，由阿里开源。相关阅读：
 
 常见的分库分表工具有：`sharding-jdbc`（当当）、`TSharding`（蘑菇街）、`MyCAT`（基于 Cobar）、`Cobar`（阿里巴巴）...。 推荐使用 `sharding-jdbc`。 因为，`sharding-jdbc` 是一款轻量级 `Java` 框架，以 `jar` 包形式提供服务，不要我们做额外的运维工作，并且兼容性也很好。
 
-相关阅读： [读写分离&分库分表常见问题总结](docs/system-design/读写分离&分库分表.md)
+相关阅读： [读写分离&分库分表常见问题总结](docs/database/读写分离&分库分表.md)
 
 #### 负载均衡
 

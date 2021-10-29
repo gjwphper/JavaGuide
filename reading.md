@@ -37,12 +37,18 @@ mysql 事务级别
 
 
 redis
-as
-{
 kafka
-mysql
+api-gateway
+rpc
+
+
+
+as
 distribute
-}
+
+
+mysql
+
 
 java
 net

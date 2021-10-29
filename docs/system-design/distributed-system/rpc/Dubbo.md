@@ -56,12 +56,15 @@
 
 根据 [Dubbo 官方文档](https://dubbo.apache.org/zh/)的介绍，Dubbo 提供了六大核心能力
 
+
+<font color="red">
 1. 面向接口代理的高性能RPC调用。
 2. 智能容错和负载均衡。
 3. 服务自动注册和发现。
 4. 高度可扩展能力。
 5. 运行期流量调度。
 6. 可视化的服务治理与运维。
+</font>
 
 ![Dubbo提供的六大核心能力](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/%E6%BA%90%E7%A0%81/dubbo/dubbo%E6%8F%90%E4%BE%9B%E7%9A%84%E5%85%AD%E5%A4%A7%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B.png)
 
@@ -448,7 +451,11 @@ public class RpcStatus {
 
 ![](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/java-guide-blog/consistent-hash-data-incline.jpg)
 
+<font color="red">
+
 另外，Dubbo 为了避免数据倾斜问题（节点不够分散，大量请求落到同一节点），还引入了虚拟节点的概念。通过虚拟节点可以让节点更加分散，有效均衡各个节点的请求量。
+
+</font>
 
 
 
