@@ -7,26 +7,33 @@
 ### Kafka 是什么？主要应用场景有哪些？
 
 Kafka 是一个分布式流式处理平台。这到底是什么意思呢？
-<font color=red>
+
+<font color=red size=2>
 
 流平台具有三个关键功能：
 
 1. **消息队列**：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。
 2. **容错的持久方式存储记录消息流**： Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险·。
 3. **流式处理平台：** 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。
-</font>
 
 Kafka 主要有两大应用场景：
 
 1. **消息队列** ：建立实时流数据管道，以可靠地在系统或应用程序之间获取数据。
 2. **数据处理：** 构建实时的流数据处理程序来转换或处理数据流。
 
+</font>
+
 ### 和其他消息队列相比,Kafka的优势在哪里？
 
 我们现在经常提到 Kafka 的时候就已经默认它是一个非常优秀的消息队列了，我们也会经常拿它给 RocketMQ、RabbitMQ 对比。我觉得 Kafka 相比其他消息队列主要的优势如下：
 
+<font color=red size=2>
+
 1. **极致的性能** ：基于 Scala 和 Java 语言开发，设计中大量使用了批量处理和异步的思想，最高可以每秒处理千万级别的消息。
 2. **生态系统兼容性无可匹敌** ：Kafka 与周边生态系统的兼容性是最好的没有之一，尤其在大数据和流计算领域。
+
+</font>
+
 
 实际上在早期的时候 Kafka 并不是一个合格的消息队列，早期的 Kafka 在消息队列领域就像是一个衣衫褴褛的孩子一样，功能不完备并且有一些小问题比如丢失消息、不保证消息可靠性等等。当然，这也和 LinkedIn 最早开发 Kafka 用于处理海量的日志有很大关系，哈哈哈，人家本来最开始就不是为了作为消息队列滴，谁知道后面误打误撞在消息队列领域占据了一席之地。
 
@@ -78,14 +85,22 @@ Kafka 将生产者发布的消息发送到 **Topic（主题）** 中，需要这
 
 同时，你一定也注意到每个 Broker 中又包含了 Topic 以及 Partition 这两个重要的概念：
 
+<font color="red">
+
 - **Topic（主题）** : Producer 将消息发送到特定的主题，Consumer 通过订阅特定的 Topic(主题) 来消费消息。
 - **Partition（分区）** : Partition 属于 Topic 的一部分。一个 Topic 可以有多个 Partition ，并且同一 Topic 下的 Partition 可以分布在不同的 Broker 上，这也就表明一个 Topic 可以横跨多个 Broker 。这正如我上面所画的图一样。
 
 > 划重点：**Kafka 中的 Partition（分区） 实际上可以对应成为消息队列中的队列。这样是不是更好理解一点？**
 
+</font>
+
+<font color="red">
+
 ### Kafka 的多副本机制了解吗？带来了什么好处？
 
 还有一点我觉得比较重要的是 Kafka 为分区（Partition）引入了多副本（Replica）机制。分区（Partition）中的多个副本之间会有一个叫做 leader 的家伙，其他副本称为 follower。我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。
+
+
 
 > 生产者和消费者只与 leader 副本交互。你可以理解为其他副本只是 leader 副本的拷贝，它们的存在只是为了保证消息存储的安全性。当 leader 副本发生故障时会从 follower 中选举出一个 leader,但是 follower 中如果有和 leader 同步程度达不到要求的参加不了 leader 的竞选。
 
@@ -94,11 +109,19 @@ Kafka 将生产者发布的消息发送到 **Topic（主题）** 中，需要这
 1. Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力（负载均衡）。
 2. Partition 可以指定对应的 Replica 数, 这也极大地提高了消息存储的安全性, 提高了容灾能力，不过也相应的增加了所需要的存储空间。
 
+</font>
+
+
 ### Zookeeper 在 Kafka 中的作用知道吗？
 
-> **要想搞懂 zookeeper 在 Kafka 中的作用 一定要自己搭建一个 Kafka 环境然后自己进 zookeeper 去看一下有哪些文件夹和 Kafka 有关，每个节点又保存了什么信息。** 一定不要光看不实践，这样学来的也终会忘记！这部分内容参考和借鉴了这篇文章：https://www.jianshu.com/p/a036405f989c 。
+> **要想搞懂 zookeeper 在 Kafka 中的作用 一定要自己搭建一个 Kafka 环境然后自己进 zookeeper 去看一下有哪些文件夹和 Kafka 有关，每个节点又保存了什么信息。** 一定不要光看不实践，这样学来的也终会忘记！这部分内容参考和借鉴了这篇文章：
+>
+>
+<font color="red">
 
+https://www.jianshu.com/p/a036405f989c 。
 
+</font>
 
 下图就是我的本地 Zookeeper ，它成功和我本地的 Kafka 关联上（以下文件夹结构借助 idea 插件 Zookeeper tool 实现）。
 
@@ -112,6 +135,21 @@ ZooKeeper 主要为 Kafka 提供元数据的管理的功能。
 2. **Topic 注册** ： 在 Kafka 中，同一个**Topic 的消息会被分成多个分区**并将其分布在多个 Broker 上，**这些分区信息及与 Broker 的对应关系**也都是由 Zookeeper 在维护。比如我创建了一个名字为 my-topic 的主题并且它有两个分区，对应到 zookeeper 中会创建这些文件夹：`/brokers/topics/my-topic/Partitions/0`、`/brokers/topics/my-topic/Partitions/1`
 3. **负载均衡** ：上面也说过了 Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力。 对于同一个 Topic 的不同 Partition，Kafka 会尽力将这些 Partition 分布到不同的 Broker 服务器上。当生产者产生消息后也会尽量投递到不同 Broker 的 Partition 里面。当 Consumer 消费的时候，Zookeeper 可以根据当前的 Partition 数量以及 Consumer 数量来实现动态负载均衡。
 4. ......
+
+
+
+<font>
+
+### 为什么kafka中1个partition只能被同组的一个consumer消费?
+
+假设1个partition能够被同组的多个consumer消费，因为consumer是通过pull的模式从partition拉取消息的，pull的时候就要决定从哪里pull，也就是index的值，不做中心化维护index的值的话，consumer就很容易pull到重复的消息重复消费，对index做中心化处理的话，就会增加通信成本，consumer每次pull的时候还得通信获取最新的index的值，再加上consumer消费失败，不commit成功的话，index的值维护起来就会异常复杂。整体上利大于弊呐，于是就1个partition只能被同组的一个consumer，如果需要多个consumer，就分多个partition
+
+作者：郭启军
+链接：https://www.zhihu.com/question/328057678/answer/2147667084
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+</font>
 
 ###  Kafka 如何保证消息的消费顺序？
 
@@ -132,7 +170,19 @@ Kafka 中发送 1 条消息的时候，可以指定 topic, partition, key,data�
 总结一下，对于如何保证 Kafka 中消息消费的顺序，有了下面两种方法：
 
 1. 1 个 Topic 只对应一个 Partition。
+
+
+
+<font color="red">
+
 2. （推荐）发送消息的时候指定 key/Partition。
+Kafka 中发送1条消息的时候，可以指定(topic, partition, key) 3个参数。partiton 和 key 是可选的。如果你指定了 partition，那就是所有消息发往同1个 partition，就是有序的。
+并且在消费端，Kafka 保证，1个 partition 只能被1个 consumer 消费。或者你指定 key（比如 order id），具有同1个 key 的所有消息，会发往同1个 partition。也是有序的。
+
+</font>
+
+
+
 
 当然不仅仅只有上面两种方法，上面两种方法是我觉得比较好理解的，
 
@@ -162,9 +212,14 @@ if (sendResult.getRecordMetadata() != null) {
                 ex -> logger.error("生产者发送消失败，原因：{}", ex.getMessage()));
 ````
 
+
+<font color="red">
+
 如果消息发送失败的话，我们检查失败的原因之后重新发送即可！
 
 **另外这里推荐为 Producer 的`retries `（重试次数）设置一个比较合理的值，一般是 3 ，但是为了保证消息不丢失的话一般会设置比较大一点。设置完成之后，当出现网络问题之后能够自动重试消息发送，避免消息丢失。另外，建议还要设置重试间隔，因为间隔太小的话重试的效果就不明显了，网络波动一次你3次一下子就重试完了**
+
+</font>
 
 #### 消费者丢失消息的情况
 
@@ -174,13 +229,18 @@ if (sendResult.getRecordMetadata() != null) {
 
 当消费者拉取到了分区的某个消息之后，消费者会自动提交了 offset。自动提交的话会有一个问题，试想一下，当消费者刚拿到这个消息准备进行真正消费的时候，突然挂掉了，消息实际上并没有被消费，但是 offset 却被自动提交了。
 
-**解决办法也比较粗暴，我们手动关闭自动提交 offset，每次在真正消费完消息之后之后再自己手动提交 offset 。** 但是，细心的朋友一定会发现，这样会带来消息被重新消费的问题。比如你刚刚消费完消息之后，还没提交 offset，结果自己挂掉了，那么这个消息理论上就会被消费两次。
+<font color="red">
+**解决办法也比较粗暴，我们手动关闭自动提交 offset，每次在真正消费完消息之后之后再自己手动提交 offset 
+</font>
+** 但是，细心的朋友一定会发现，这样会带来消息被重新消费的问题。比如你刚刚消费完消息之后，还没提交 offset，结果自己挂掉了，那么这个消息理论上就会被消费两次。
 
 #### Kafka 弄丢了消息
 
  我们知道 Kafka 为分区（Partition）引入了多副本（Replica）机制。分区（Partition）中的多个副本之间会有一个叫做 leader 的家伙，其他副本称为 follower。我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。生产者和消费者只与 leader 副本交互。你可以理解为其他副本只是 leader 副本的拷贝，它们的存在只是为了保证消息存储的安全性。
 
 **试想一种情况：假如 leader 副本所在的 broker 突然挂掉，那么就要从 follower 副本重新选出一个 leader ，但是 leader 的数据还有一些没有被 follower 副本的同步的话，就会造成消息丢失。**
+
+<font color="red">
 
 **设置 acks = all**
 
@@ -204,9 +264,44 @@ acks 的默认值即为1，代表我们的消息被leader副本接收之后就�
 
 我们最开始也说了我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。多个 follower 副本之间的消息同步情况不一样，当我们配置了 **unclean.leader.election.enable = false**  的话，当 leader 副本发生故障时就不会从  follower 副本中和 leader 同步程度达不到要求的副本中选择出  leader ，这样降低了消息丢失的可能性。
 
+</font>
+
 ### Kafka 如何保证消息不重复消费
 
-代办...
+一、kafka自带的消费机制
+
+　　kafka有个offset的概念，当每个消息被写进去后，都有一个offset，代表他的序号，然后consumer消费该数据之后，隔一段时间，会把自己消费过的消息的offset提交一下，代表我已经消费过了。下次我要是重启，就会继续从上次消费到的offset来继续消费。
+
+　　但是当我们直接kill进程了，再重启。这会导致consumer有些消息处理了，但是没来得及提交offset。等重启之后，少数消息就会再次消费一次。
+
+　　其他MQ也会有这种重复消费的问题，那么针对这种问题，我们需要从业务角度，考虑它的幂等性。
+
+ 
+<font color="red">
+
+二、通过保证消息队列消费的幂等性来保证
+
+　　举个例子，当消费一条消息时就往数据库插入一条数据。如何保证重复消费也插入一条数据呢？
+
+　　那么我们就需要从幂等性角度考虑了。幂等性，我通俗点说，就一个数据，或者一个请求，无论来多次，对应的数据都不会改变的，不能出错。
+
+ 
+
+怎么保证消息队列消费的幂等性？
+
+我们需要结合业务来思考，比如下面的例子：
+
+　　1.比如某个数据要写库，你先根据主键查一下，如果数据有了，就别插入了，update一下好吧
+
+　　2.比如你是写redis，那没问题了，反正每次都是set，天然幂等性
+
+　　3.对于消息，我们可以建个表（专门存储消息消费记录）
+
+　　　　生产者，发送消息前判断库中是否有记录（有记录说明已发送），没有记录，先入库，状态为待消费，然后发送消息并把主键id带上。
+
+　　　　消费者，接收消息，通过主键ID查询记录表，判断消息状态是否已消费。若没消费过，则处理消息，处理完后，更新消息记录的状态为已消费。
+
+</font> 
 
 ### Reference
 
