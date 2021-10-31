@@ -40,9 +40,16 @@
     sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
 /* 连接与断开服务器 */
 mysql -h 地址 -P 端口 -u 用户名 -p 密码
-SHOW PROCESSLIST -- 显示哪些线程正在运行
+
+
+
 SHOW VARIABLES -- 显示系统变量信息
 ```
+
+
+<font color="red">
+SHOW PROCESSLIST -- 显示哪些线程正在运行
+</font>
 
 ### 数据库操作
 
@@ -527,6 +534,7 @@ TRUNCATE [TABLE] tbl_name
 
 ### 备份与还原
 
+<font color="red">
 ```mysql
 /* 备份与还原 */ ------------------
 备份，将数据的结构与表内数据保存起来。
@@ -550,6 +558,7 @@ mysqldump [options] --all--database
 2. 在不登录的情况下
 　　mysql -u用户名 -p密码 库名 < 备份文件
 ```
+</font>
 
 ### 视图
 
@@ -637,7 +646,7 @@ CREATE [OR REPLACE] [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}] VIEW view_name
 ```
 
 ### 锁表
-
+<font color="red">
 ```mysql
 /* 锁表 */
 表锁定只用于防止其它客户端进行不正当地读取和写入
@@ -647,7 +656,7 @@ MyISAM 支持表锁，InnoDB 支持行锁
 -- 解锁
     UNLOCK TABLES
 ```
-
+</font>
 ### 触发器
 
 ```mysql
