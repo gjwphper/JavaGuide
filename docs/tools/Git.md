@@ -158,6 +158,7 @@ Git 有三种状态，你的文件可能处于其中之一：
     
 ### 推送改动到远程仓库
 
+
 - 如果你还没有克隆现有仓库，并欲将你的仓库连接到某个远程服务器，你可以使用如下命令添加：·`git remote add origin <server>` ,比如我们要让本地的一个仓库和 Github 上创建的一个仓库关联可以这样`git remote add origin https://github.com/Snailclimb/test.git` 
 - 将这些改动提交到远端仓库：`git push origin master` (可以把 *master* 换成你想要推送的任何分支)
 
@@ -190,6 +191,8 @@ git commit --amend
 
 取消暂存的文件
 
+
+
 ```console
 git reset filename
 ```
@@ -221,7 +224,8 @@ git reset --hard origin/master
 git branch test
 ```
 
-切换当前分支到 test（当你切换分支的时候，Git 会重置你的工作目录，使其看起来像回到了你在那个分支上最后一次提交的样子。 Git 会自动添加、删除、修改文件以确保此时你的工作目录和这个分支最后一次提交时的样子一模一样）
+切换当前分支到 test（当你切换分支的时候，Git 会重置你的工作目录，使其看起来像回到了你在那个分支上最后一次提交的样子。 
+Git 会自动添加、删除、修改文件以确保此时你的工作目录和这个分支最后一次提交时的样子一模一样）
 
 ```console
 git checkout test
