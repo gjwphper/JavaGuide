@@ -35,14 +35,16 @@ mysql 事务级别
 
 ======================================================================================================================================================
 
+database
+    mysql
+    redis
 
-redis
-kafka
 
 system-design
     distributed-system
         api-gateway
         message-queue
+            kafka
         rpc
 
 

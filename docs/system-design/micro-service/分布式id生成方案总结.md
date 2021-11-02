@@ -70,6 +70,7 @@ set @@auto_increment_increment = 2;  -- 步长
 
 为了解决上面的问题，以及能够进一步提高DistributIdService的性能，如果使用第三种生成分布式ID机制。
 
+<font color="red">
 ## 号段模式
 
 我们可以使用号段的方式来获取自增ID，号段可以理解成批量获取，比如DistributIdService从数据库获取ID时，如果能批量获取多个ID并缓存在本地的话，那样将大大提供业务应用获取ID的效率。
@@ -129,6 +130,9 @@ snowflake算法实现起来并不难，提供一个github上用java实现的：[
 在大厂里，其实并没有直接使用snowflake，而是进行了改造，因为snowflake算法中最难实践的就是工作机器id，原始的snowflake算法需要人工去为每台机器去指定一个机器id，并配置在某个地方从而让snowflake从此处获取机器id。
 
 但是在大厂里，机器是很多的，人力成本太大且容易出错，所以大厂对snowflake进行了改造。
+
+</font>
+
 
 ### 百度（uid-generator）
 
