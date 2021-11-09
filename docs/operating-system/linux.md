@@ -274,7 +274,13 @@ Linux 命令大全：[http://man.linuxde.net/](http://man.linuxde.net/)
 
 - **`mkdir 目录名称`：** 增加目录。
 - **`ls/ll`**（ll 是 ls -l 的别名，ll 命令可以看到该目录下的所有目录和文件的详细信息）：查看目录信息。
+
+<font color="red">
+
 - **`find 目录 参数`：** 寻找目录（查）。示例：① 列出当前目录及子目录下所有文件和文件夹: `find .`；② 在`/home`目录下查找以.txt 结尾的文件名:`find /home -name "*.txt"` ,忽略大小写: `find /home -iname "*.txt"` ；③ 当前目录及子目录下查找所有以.txt 和.pdf 结尾的文件:`find . \( -name "*.txt" -o -name "*.pdf" \)`或`find . -name "*.txt" -o -name "*.pdf"`。
+
+</font>
+
 - **`mv 目录名称 新目录名称`：** 修改目录的名称（改）。注意：mv 的语法不仅可以对目录进行重命名而且也可以对各种文件，压缩包等进行 重命名的操作。mv 命令用来对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。后面会介绍到 mv 命令的另一个用法。
 - **`mv 目录名称 目录的新位置`：** 移动目录的位置---剪切（改）。注意：mv 语法不仅可以对目录进行剪切操作，对文件和压缩包等都可执行剪切操作。另外 mv 与 cp 的结果不同，mv 好像文件“搬家”，文件个数并未增加。而 cp 对文件进行复制，文件个数增加了。
 - **`cp -r 目录名称 目录拷贝的目标位置`：** 拷贝目录（改），-r 代表递归拷贝 。注意：cp 命令不仅可以拷贝目录还可以拷贝文件，压缩包等，拷贝文件和压缩包时不 用写-r 递归。
@@ -299,7 +305,11 @@ Linux 中的打包文件一般是以.tar 结尾的，压缩的命令一般是以
 - v：显示运行过程
 - f：指定文件名
 
+<font color="red">
+
 比如：假如 test 目录下有三个文件分别是：aaa.txt bbb.txt ccc.txt，如果我们要打包 test 目录并指定压缩后的压缩包名称为 test.tar.gz 可以使用命令：**`tar -zcvf test.tar.gz aaa.txt bbb.txt ccc.txt` 或 `tar -zcvf test.tar.gz /test/`**
+
+</font>
 
 **2）解压压缩包：**
 
@@ -374,7 +384,11 @@ Linux 中的打包文件一般是以.tar 结尾的，压缩的命令一般是以
 
 示例：修改/test 下的 aaa.txt 的权限为文件所有者有全部权限，文件所有者所在的组有读写权限，其他用户只有读的权限。
 
+<font color="red">
+
 **`chmod u=rwx,g=rw,o=r aaa.txt`** 或者 **`chmod 764 aaa.txt`**
+
+</font>
 
 ![](images/修改文件权限.png)
 
@@ -424,7 +438,17 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 
 - `sudo + 其他命令`：以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。
 
+<font color="red">
+
 - **`grep 要搜索的字符串 要搜索的文件 --color`：** 搜索命令，--color 代表高亮显示
+
+实践：grep '33' ./bill.php --color
+
+find ./ -name bill*
+
+</font>
+
+
 
 - **`ps -ef`/`ps -aux`：** 这两个命令都是查看当前系统正在运行进程，两者的区别是展示格式不同。如果想要查看特定的进程可以使用这样的格式：**`ps aux|grep redis`** （查看包括 redis 字符串的进程），也可使用 `pgrep redis -a`。
 
@@ -433,11 +457,16 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 - **`kill -9 进程的pid`：** 杀死进程（-9 表示强制终止。）
 
   先用 ps 查找进程，然后用 kill 杀掉
+  
+<font color="red">
 
 - **网络通信命令：**
   - 查看当前系统的网卡信息：ifconfig
   - 查看与某台机器的连接情况：ping
   - 查看当前系统的端口使用：netstat -an
+  
+</font>
+  
 - **net-tools 和 iproute2 ：**
   `net-tools`起源于 BSD 的 TCP/IP 工具箱，后来成为老版本 LinuxLinux 中配置网络功能的工具。但自 2001 年起，Linux 社区已经对其停止维护。同时，一些 Linux 发行版比如 Arch Linux 和 CentOS/RHEL 7 则已经完全抛弃了 net-tools，只支持`iproute2`。linux ip 命令类似于 ifconfig，但功能更强大，旨在替代它。更多详情请阅读[如何在 Linux 中使用 IP 命令和示例](https://linoxide.com/linux-command/use-ip-command-linux)
 - **`shutdown`：** `shutdown -h now`： 指定现在立即关机；`shutdown +5 "System will shutdown after 5 minutes"`：指定 5 分钟后关机，同时送出警告信息给登入用户。
