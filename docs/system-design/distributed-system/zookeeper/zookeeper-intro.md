@@ -81,6 +81,8 @@ ZooKeeper 是一个开源的**分布式协调服务**，它的设计目标是将
 - **单一系统映像 ：** 无论客户端连到哪一个 ZooKeeper 服务器上，其看到的服务端数据模型都是一致的。
 - **可靠性：** 一旦一次更改请求被应用，更改的结果就会被持久化，直到被下一次更改覆盖。
 
+<font color="red">
+
 ### 2.4. ZooKeeper 典型应用场景
 
 ZooKeeper 概览中，我们介绍到使用其通常被用于实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能。
@@ -98,6 +100,8 @@ ZooKeeper 概览中，我们介绍到使用其通常被用于实现诸如数据�
 1. **Kafka** : ZooKeeper 主要为 Kafka 提供 Broker 和 Topic 的注册以及多个 Partition 的负载均衡等功能。
 2. **Hbase** : ZooKeeper 为 Hbase 提供确保整个集群只有一个 Master 以及保存和提供 regionserver 状态信息（是否在线）等功能。
 3. **Hadoop** : ZooKeeper 为 Namenode 提供高可用支持。
+
+</font>
 
 ## 3. ZooKeeper 重要概念解读
 
@@ -127,11 +131,14 @@ ZooKeeper 数据模型采用层次化的多叉树形结构，每个节点上都�
 - **临时顺序（EPHEMERAL_SEQUENTIAL）节点** ：除了具备临时（EPHEMERAL）节点的特性之外，子节点的名称还具有顺序性。
 
 #### 3.2.2. znode 数据结构
+<font color="red">
 
 每个 znode 由 2 部分组成:
 
 - **stat** ：状态信息
 - **data** ： 节点存放的数据的具体内容
+
+</font>
 
 如下所示，我通过 get 命令来获取 根目录下的 dubbo 节点的内容。（get 命令在下面会介绍到）。
 

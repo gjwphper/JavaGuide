@@ -173,19 +173,19 @@
 
 **知识点/面试题:** 
 
-1. **[Spring 常见问题总结](docs/system-design/framework/spring/Spring常见问题总结.md)**
+1. **[Spring 常见问题总结](docs/java/framework/spring/Spring常见问题总结.md)**
 2. **[SpringBoot 入门指南](https://github.com/Snailclimb/springboot-guide)**
 3. **[面试常问：“讲述一下 SpringBoot 自动装配原理？”](https://www.cnblogs.com/javaguide/p/springboot-auto-config.html)**
 
 **重要知识点详解：**
 
-1. **[Spring/Spring Boot 常用注解总结！安排！](./docs/system-design/framework/spring/SpringBoot+Spring常用注解总结.md)** 
-2. **[Spring 事务总结](docs/system-design/framework/spring/Spring事务总结.md)** 
-3. [Spring 中都用到了那些设计模式?](docs/system-design/framework/spring/Spring-Design-Patterns.md)
+1. **[Spring/Spring Boot 常用注解总结！安排！](docs/java/framework/spring/SpringBoot+Spring常用注解总结.md)** 
+2. **[Spring 事务总结](docs/java/framework/spring/Spring事务总结.md)** 
+3. [Spring 中都用到了那些设计模式?](docs/java/framework/spring/Spring-Design-Patterns.md)
 
 #### MyBatis
 
-- [MyBatis 常见面试题总结](docs/system-design/framework/mybatis/mybatis-interview.md)
+- [MyBatis 常见面试题总结](docs/java/framework/mybatis/mybatis-interview.md)
 
 #### Netty (必看 :+1:)
 

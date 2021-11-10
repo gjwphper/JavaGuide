@@ -65,7 +65,11 @@ root@eaf70fc620cb:/apache-zookeeper-3.5.8-bin# cd bin
 
 ![](images/连接ZooKeeper服务.png)
 
+<font color="red">
+
 ### 2.3. 常用命令演示
+
+</font>
 
 #### 2.3.1. 查看常用命令(help 命令)
 
