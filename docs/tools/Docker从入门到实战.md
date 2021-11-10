@@ -319,8 +319,11 @@ docker pull tomcat:8.0-jre8
 ```shell
 docker run -p 8080:8080 tomcat:8.0-jre8
 ```
+<font color="red">
 
 解释一下这两个端口的作用(`8080:8080`)，第一个 8080 为宿主机端口，第二个 8080 为容器内的端口，外部访问 8080 端口就会通过映射访问容器内的 8080 端口。
+
+</font>
 
 此时外部就可以访问 Tomcat 了：
 
@@ -457,6 +460,7 @@ docker logs -ft 289cc00dc5ed
 ```
 
 ---
+<font color="red">
 
 查看容器内运行了哪些进程，可以使用指令：
 
@@ -464,13 +468,18 @@ docker logs -ft 289cc00dc5ed
 docker top 289cc00dc5ed
 ```
 
+</font>
+
 ![](https://oscimg.oschina.net/oscnet/up-7ec71a682712e56e90490f55c32cf660fd3.png)
 
 若是想与容器进行交互，则使用指令：
 
+<font color="red">
+
 ```shell
 docker exec -it 289cc00dc5ed bash
 ```
+</font>
 
 ![](https://oscimg.oschina.net/oscnet/up-fd17796322f833685ca8ead592d38581898.png)
 
@@ -481,8 +490,11 @@ docker exec -it 289cc00dc5ed bash
 ```shell
 docker cp ./test.html 289cc00dc5ed:/usr/local/tomcat/webapps
 ```
+<font color="red">
 
 通过`docker cp`指令能够将文件从 CentOS 复制到容器中，`./test.html`为 CentOS 中的资源路径，`289cc00dc5ed`为容器 id，`/usr/local/tomcat/webapps`为容器的资源路径，此时`test.html`文件将会被复制到该路径下。
+
+</font>
 
 ```shell
 [root@izrcf5u3j3q8xaz ~]# docker exec -it 289cc00dc5ed bash
@@ -590,6 +602,8 @@ docs  examples  host-manager  manager  ROOT
 
 ---
 
+<font color="red">
+
 最后再介绍几个容器和镜像相关的指令：
 
 ```shell
@@ -635,3 +649,5 @@ Loaded image: my_tomcat:1.0
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 my_tomcat           1.0                 79ab047fade5        7 minutes ago       463MB
 ```
+
+</font>

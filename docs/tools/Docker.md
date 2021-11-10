@@ -278,7 +278,11 @@ LXC 技术主要是借助 Linux 内核中提供的 CGroup 功能和 name space �
 
   （以上关于 CGroup 介绍内容来自 https://www.ibm.com/developerworks/cn/linux/1506_cgroup/index.html ，更多关于 CGroup 的呢内容可以查看这篇文章 ）。
 
+<font color="red">
+
 **cgroup 和 namespace 两者对比：**
+
+</font>
 
 两者都是将进程进行分组，但是两者的作用还是有本质区别。namespace 是为了隔离进程组之间的资源，而 cgroup 是为了对一组进程进行统一的资源监控和限制。
 
