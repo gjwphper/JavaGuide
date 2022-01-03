@@ -1207,10 +1207,12 @@ public class DebugInvocationHandler implements InvocationHandler {
 ![](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-12/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE2.png)
 
 <p style="font-size:13px;text-align:right">图片来自：https://chercher.tech/java-programming/exceptions-java</p>
-
+<font color="red">
 在 Java 中，所有的异常都有一个共同的祖先 `java.lang` 包中的 `Throwable` 类。`Throwable` 类有两个重要的子类 `Exception`（异常）和 `Error`（错误）。`Exception` 能被程序本身处理(`try-catch`)， `Error` 是无法处理的(只能尽量避免)。
 
 `Exception` 和 `Error` 二者都是 Java 异常处理的重要子类，各自都包含大量子类。
+
+</font>
 
 - **`Exception`** :程序本身可以处理的异常，可以通过 `catch` 来进行捕获。`Exception` 又可以分为 受检查异常(必须处理) 和 不受检查异常(可以不处理)。
 - **`Error`** ：`Error` 属于程序无法处理的错误 ，我们没办法通过 `catch` 来进行捕获 。例如，Java 虚拟机运行错误（`Virtual MachineError`）、虚拟机内存不够错误(`OutOfMemoryError`)、类定义错误（`NoClassDefFoundError`）等 。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止。
@@ -1221,7 +1223,9 @@ Java 代码在编译过程中，如果受检查异常没有被 `catch`/`throw` �
 
 ![check-exception](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-12/check-exception.png)
 
+<font color="red">
 除了`RuntimeException`及其子类以外，其他的`Exception`类及其子类都属于受检查异常 。常见的受检查异常有： IO 相关的异常、`ClassNotFoundException` 、`SQLException`...。
+</font>
 
 **不受检查异常**
 
@@ -1295,8 +1299,9 @@ Java 中类似于`InputStream`、`OutputStream` 、`Scanner` 、`PrintWriter`等
             }
         }
 ```
-
+<font color="red">
 使用 Java 7 之后的 `try-with-resources` 语句改造上面的代码:
+</font>
 
 ```java
 try (Scanner scanner = new Scanner(new File("test.txt"))) {
@@ -1338,11 +1343,17 @@ try (BufferedInputStream bin = new BufferedInputStream(new FileInputStream(new F
 
 对于 Java 这种面向对象编程语言来说，我们序列化的都是对象（Object）也就是实例化后的类(Class)，但是在 C++这种半面向对象的语言中，struct(结构体)定义的是数据结构类型，而 class 对应的是对象类型。
 
-维基百科是如是介绍序列化的：
+维基百科是如是介绍序列化的：  
 
 > **序列化**（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换成可取用格式（例如存成文件，存于缓冲，或经由网络中发送），以留待后续在相同或另一台计算机环境中，能恢复原先状态的过程。依照序列化格式重新获取字节的结果时，可以利用它来产生与原始对象相同语义的副本。对于许多对象，像是使用大量引用的复杂对象，这种序列化重建的过程并不容易。面向对象中的对象序列化，并不概括之前原始对象所关系的函数。这种过程也称为对象编组（marshalling）。从一系列字节提取数据结构的反向操作，是反序列化（也称为解编组、deserialization、unmarshalling）。
 
+
+
+<font color="red">
+
 综上：**序列化的主要目的是通过网络传输对象或者说是将对象存储到文件系统、数据库、内存中。**
+
+</font>
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2020-8/a478c74d-2c48-40ae-9374-87aacf05188c.png)
 
@@ -1352,20 +1363,25 @@ try (BufferedInputStream bin = new BufferedInputStream(new FileInputStream(new F
 
 `对于不想进行序列化的变量，使用`transient`关键字修饰。`
 
+<font color="red">
+
 `transient` 关键字的作用是：阻止实例中那些用此关键字修饰的的变量序列化；当对象被反序列化时，被 `transient` 修饰的变量值不会被持久化和恢复。`transient` 只能修饰变量，不能修饰类和方法。
 
+</font>
+
+
 ### 获取用键盘输入常用的两种方法
-
+<font color="red">
 方法 1：通过 `Scanner`
-
+</font>
 ```java
 Scanner input = new Scanner(System.in);
 String s  = input.nextLine();
 input.close();
 ```
-
+<font color="red">
 方法 2：通过 `BufferedReader`
-
+</font>
 ```java
 BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 String s = input.readLine();
@@ -1373,9 +1389,11 @@ String s = input.readLine();
 
 ### Java 中 IO 流分为几种?
 
+<font color="red">
 - 按照流的流向分，可以分为输入流和输出流；
 - 按照操作单元划分，可以划分为字节流和字符流；
 - 按照流的角色划分为节点流和处理流。
+</font>
 
 Java Io 流共涉及 40 多个类，这些类看上去很杂乱，但实际上很有规则，而且彼此之间存在非常紧密的联系， Java I0 流的 40 多个类都是从如下 4 个抽象类基类中派生出来的。
 
@@ -1394,7 +1412,12 @@ Java Io 流共涉及 40 多个类，这些类看上去很杂乱，但实际上�
 
 问题本质想问：**不管是文件读写还是网络发送接收，信息的最小存储单元都是字节，那为什么 I/O 流操作要分为字节流操作和字符流操作呢？**
 
-回答：字符流是由 Java 虚拟机将字节转换得到的，问题就出在这个过程还算是非常耗时，并且，如果我们不知道编码类型就很容易出现乱码问题。所以， I/O 流就干脆提供了一个直接操作字符的接口，方便我们平时对字符进行流操作。如果音频文件、图片等媒体文件用字节流比较好，如果涉及到字符的话使用字符流比较好。
+回答：
+
+<font color="red">
+字符流是由 Java 虚拟机将字节转换得到的，问题就出在这个过程还算是非常耗时，并且，如果我们不知道编码类型就很容易出现乱码问题。
+</font>
+所以， I/O 流就干脆提供了一个直接操作字符的接口，方便我们平时对字符进行流操作。如果音频文件、图片等媒体文件用字节流比较好，如果涉及到字符的话使用字符流比较好。
 
 ## 4. 参考
 
